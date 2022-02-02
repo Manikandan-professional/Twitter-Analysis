@@ -81,7 +81,7 @@ for i in range(0,df.shape[0],1):
 df.head()
 
 df['Tweet Text'][0]
-
+"""# **Checking the subjectivity and polarity of the Tweets**"""
 df['subjectivity']=0.0
 df['polarity']=0.0
 
@@ -105,7 +105,7 @@ for i in range(0,df.shape[0],1):
 df.head(20)
 
 plt.scatter(df.index,df.polarity)
-
+"""# **Using the VaderSentiment analysis**"""
 !pip install vaderSentiment
 
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
@@ -123,12 +123,12 @@ final
 
 final=final.rename(columns={'neg':'Negative','neu':'Neutral','pos':'Positive','compound':'compound'})
 final.head()
-
+"""# **NLTK**"""
 import nltk
 nltk.download('stopwords')
 from nltk.corpus import stopwords
 STOPWORDS = set(stopwords.words('english'))
-
+"""# **Finding out the Negative, Neutral, Positive Average of the Tweets given**"""
 total=final.shape[0]
 neg=final['Negative'].sum()
 neu=final['Neutral'].sum()
