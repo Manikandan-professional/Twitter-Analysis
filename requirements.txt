@@ -86,3 +86,4 @@ widgetsnbextension==3.5.2
 wincertstore==0.2
 zipp==3.7.0
 gunicorn==19.0.0
+bash
