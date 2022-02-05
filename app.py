@@ -31,13 +31,16 @@ def predict():
         text = request.form['text']
         s=analyzer.polarity_scores(text)
         print(s)
-        if s['pos']>s['neg']:
+        if s['pos']>s['neg'] and s['pos']>s['neu']:
             print('Positive')
             return render_template('Positive.html',prediction_texts="Positive Tweet")
             
-        else:
+        elif s['neg']>s['pos'] and s['neg']>s['neu']:
             print('Negative')
             return render_template('Negative.html',prediction_texts="Negative Tweet")
+        else:
+            print('Negative')
+            return render_template('Neutral.html',prediction_texts="Neutral Tweet")            
     else:
         return render_template('index.html')
         
